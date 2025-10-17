@@ -1,4 +1,10 @@
-# Extract Alpha
+# Extract (alpha)
+
+Extract uses AI to unlock historical planning data, built in partnership between MHCLG's Planning Data team and the Incubator for AI. 
+
+Read more on [MHCLG's blog](https://mhclgdigital.blog.gov.uk/2025/06/12/extract-using-ai-to-unlock-historic-planning-data/) and [Incubator for AI's project page](https://ai.gov.uk/projects/extract/).
+
+---
 
 This repository contains two main parts:
 
