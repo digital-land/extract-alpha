@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+    {% set html %}
+      <h1 class="govuk-notification-banner__heading">
+        This service uses artificial intelligence (AI)
+      </h1>
+      <p class="govuk-body">
+        When you upload a document in this service, artificial intelligence will extract geospatial and textual data from the documents.
+      </p>
+      <p class="govuk-body">
+        AI can make mistakes. You will have the opportunity to refine or correct the boundaries, or you can try again. 
+      </p>
+      <p class="govuk-body">
+        You can export the extracted data when you are ready. 
+      </p>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "#",
+      isStartButton: false
+    }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
