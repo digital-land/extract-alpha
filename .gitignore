@@ -1,7 +1,7 @@
 # Node.js ignores
 node_modules/
 prototypes/node_modules/
-_site
+_site/
 
 # Prototype ignores - per-user
 .tmp/

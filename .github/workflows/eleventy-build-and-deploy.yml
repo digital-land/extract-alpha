@@ -1,0 +1,2 @@
+- name: Eleventy build and deploy
+  uses: TartanLlama/actions-eleventy@v1.3
