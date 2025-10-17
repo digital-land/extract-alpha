@@ -5,11 +5,29 @@ export default function (eleventyConfig) {
   // https://x-govuk.github.io/govuk-eleventy-plugin/options/
   eleventyConfig.addPlugin(govukEleventyPlugin, {
     header: {
-      productName: 'Design History',
+      productName: 'Extract planning data',
       search: {
         indexPath: '/search-index.json',
         sitemapPath: '/sitemap'
       }
+    },
+    footer: {
+      meta: {
+        items: [
+        {
+          href: "#",
+          text: "Team"
+        },
+        {
+          href: "#",
+          text: "Roadmap"
+        },
+        {
+          href: "#",
+          text: "Sprint board"
+        }
+      ]
+  }
     },
     headingPermalinks: true,
     stylesheets: [
@@ -26,6 +44,15 @@ export default function (eleventyConfig) {
 
   // Passthrough
   eleventyConfig.addPassthroughCopy({ './app/images': '.' })
+  
+  // Collections
+  eleventyConfig.addCollection('design-history', collection => {
+    return collection.getFilteredByGlob('app/posts/design-history/*.md')
+  })
+
+  eleventyConfig.addCollection('weeknotes', collection => {
+    return collection.getFilteredByGlob('app/posts/weeknotes/*.md')
+  })
 
   // Config
   return {
