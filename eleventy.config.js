@@ -39,7 +39,7 @@ export default function (eleventyConfig) {
     },
     url:
       process.env.GITHUB_ACTIONS &&
-      'https://x-govuk.github.io/govuk-design-history-template/'
+      'https://digital-land.github.io/extract-alpha/'
   })
 
   // Passthrough
