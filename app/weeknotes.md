@@ -8,3 +8,5 @@ pagination:
   size: 50
 permalink: "weeknotes/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}{% endif %}/"
 ---
+
+Subscribe to the [feed](/weeknotes/feed.xml).

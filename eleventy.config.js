@@ -35,7 +35,13 @@ export default function (eleventyConfig) {
     ],
     templates: {
       searchIndex: true,
-      tags: true
+      tags: true,
+      feed: {
+        title: 'Weeknotes for Extract planning data',
+        collection: 'weeknotes',
+        url: 'https://digital-land.github.io/extract-alpha/',
+        permalink: '/weeknotes/feed.xml'
+      }
     },
     url:
       process.env.GITHUB_ACTIONS &&
