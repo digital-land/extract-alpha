@@ -31,7 +31,7 @@ export default function (eleventyConfig) {
     },
     headingPermalinks: true,
     stylesheets: [
-      '/styles/application.css'
+      '/assets/styles.css'
     ],
     templates: {
       searchIndex: true,
@@ -64,6 +64,6 @@ export default function (eleventyConfig) {
       layouts: '_layouts',
       includes: '_components'
     },
-    pathPrefix: process.env.GITHUB_ACTIONS && '/govuk-design-history-template/'
+    pathPrefix: process.env.GITHUB_ACTIONS && '/extract-alpha/'
   }
 }
