@@ -32,9 +32,12 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
       - name: Install dependencies
         run: npm ci
+        run: npm test
 
       - name: Run build command
         run: npm run build
