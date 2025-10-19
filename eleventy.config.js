@@ -9,6 +9,9 @@ export default function (eleventyConfig) {
       search: {
         indexPath: '/search-index.json',
         sitemapPath: '/sitemap'
+      },
+      logotype: {
+        html: '<img src="https://ai.gov.uk/logos/i-dot-ai-reverse.svg" alt="i.AI logo" height="30" fill="currentcolor" class="govuk-header__logotype"> x MHCLG'
       }
     },
     footer: {
