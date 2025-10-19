@@ -15,7 +15,7 @@ export default function (eleventyConfig) {
       meta: {
         items: [
         {
-          href: "#",
+          href: "/team/",
           text: "Team"
         },
         {
