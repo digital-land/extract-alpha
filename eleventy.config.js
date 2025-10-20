@@ -11,7 +11,7 @@ export default function (eleventyConfig) {
         sitemapPath: '/sitemap'
       },
       logotype: {
-        html: '<img src="https://ai.gov.uk/logos/i-dot-ai-reverse.svg" alt="i.AI logo" height="30" fill="currentcolor" class="govuk-header__logotype"> x MHCLG'
+        html: '<img src="i-dot-ai-reverse.svg" alt="i.AI logo" height="30" fill="currentcolor" class="govuk-header__logotype"> x <img src="digital-planning-logo_white.png" alt="Digital Planning logo" height="30" fill="currentcolor" class="govuk-header__logotype">'
       }
     },
     footer: {
