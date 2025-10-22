@@ -23,7 +23,7 @@ export default function (eleventyConfig) {
           text: "Roadmap"
         },
         {
-          href: "#",
+          href: "https://github.com/orgs/digital-land/projects/22/views/4",
           text: "Sprint board"
         }
       ]
