@@ -9,6 +9,9 @@ export default function (eleventyConfig) {
       search: {
         indexPath: '/search-index.json',
         sitemapPath: '/sitemap'
+      },
+      logotype: {
+        text: '<img src="/digital-planning-logo_white.png" alt="Digital Planning logo" height="34" fill="currentcolor" class="govuk-header__logotype"><img src="/i-dot-ai-reverse.svg" alt="i.AI logo" height="30" fill="currentcolor" class="govuk-header__logotype"> '
       }
     },
     footer: {
