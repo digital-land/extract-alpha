@@ -2,6 +2,21 @@
 
 {% from "screenshots/macro.njk" import appScreenshots %}
 
+{# Override the head block provided by the upstream layout so we can add a script
+   while keeping the parent's head content. Use super() to preserve it. #}
+{% block head %}
+  {{ super() }}
+  {# Include analytics only in production builds (see eleventy.config.js) #}
+  {% if isProduction %}
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-PY5FsA6QcLIz_lTqqfGBa.js"></script>
+    <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+    </script>
+  {% endif %}
+{% endblock %}
+
 {% block content %}
   {{ appDocumentHeader({
     title: title | noOrphans

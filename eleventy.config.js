@@ -51,6 +51,13 @@ export default function (eleventyConfig) {
       'https://digital-land.github.io/extract-alpha/'
   })
 
+  // Make a flag available to templates indicating a production deploy on main
+  // We consider production to be a GitHub Actions run on the `main` branch.
+  const isProduction = Boolean(
+    process.env.GITHUB_ACTIONS && process.env.GITHUB_REF === 'refs/heads/main'
+  )
+  eleventyConfig.addGlobalData('isProduction', isProduction)
+
   // Passthrough
   eleventyConfig.addPassthroughCopy({ './app/images': '.' })
   
