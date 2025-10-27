@@ -2,6 +2,19 @@
 
 {% from "screenshots/macro.njk" import appScreenshots %}
 
+{# Add scripts to head; preserve upstream head content #}
+{% block head %}
+  {{ super() }}
+  {% if isProduction %}
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-PY5FsA6QcLIz_lTqqfGBa.js"></script>
+    <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+    </script>
+  {% endif %}
+{% endblock %}
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
