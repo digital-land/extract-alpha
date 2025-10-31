@@ -1,6 +1,6 @@
 ---
 title: “A strong week, a solid 9”
-description:  
+description: Finding code we can re-use, sharing knowledge in a big collaboration session, and onboarding our user researcher. We’re building up steam.
 date: 2025-10-31
 author: Steve Messer
 ---
