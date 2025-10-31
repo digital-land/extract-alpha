@@ -3,10 +3,6 @@ title: The unit of delivery is the team
 description: This week we kicked off the alpha, held our first planning session, and started looking at risky assumptions. 
 date: 2025-10-24
 author: Steve Messer
-tags: 
-    - MHCLG
-    - Kick-off
-    - Sprint Zero
 ---
 
 ‘Ello.
