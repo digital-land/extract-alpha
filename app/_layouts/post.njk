@@ -28,7 +28,7 @@
       }) }}
     </div>
 
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-three-quarters">
       {% call appProseScope() %}
         {% if image -%}
           <figure>
@@ -50,7 +50,7 @@
     </div>
 
     {% if aside or related %}
-      <div class="govuk-grid-column-one-third-from-desktop">
+      <div class="govuk-grid-column-one-quarter">
         {% include "layouts/shared/related.njk" %}
       </div>
     {% endif %}
