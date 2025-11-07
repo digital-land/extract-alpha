@@ -1,6 +1,6 @@
 ---
 title: Forming the research plan, and extracting trees
-description: 
+description: Jordy showcased a new feature for tree extraction in TPOs, while Gavin presented georeferencing tech improvements. Rob outlined our research roadmap, and the team planned key features for testing.
 date: 2025-11-07
 author: Steve Messer
 ---
@@ -57,6 +57,8 @@ The metrics pilot (and follow-up study) aims to capture baseline data and surfac
 ## A new sprint
 
 The team got together to plan the development of key features ready for testing. Though some of these have been in existence for a while, they were built into an inaccessible frontend. These are being ported over to an Express.js frontend by Kevin and Hannah at great speed, which can utilise the Extract backend.
+
+Fabia documented the [design thinking for Extract](/design-history/design-thinking-for-extract/), covering some of the build-up to the start of the alpha. 
 
 Fabia also started design research for one of the trickiest features: evaluating the AI’s output alongside the original document, in an accessible way. This falls right in the middle of the user’s journey and will set a core design constraint, helping us eliminate a big uncertainty early on. [Starting in the middle](https://basecamp.com/shapeup/3.2-chapter-11#start-in-the-middle) can help us address design problems early on, making it quicker to design and develop features in successive weeks.
 
