@@ -75,4 +75,4 @@ Next week, we’ll be
 - planning the first round of research, and
 - recruiting research participants.
 
-[Subscribe to the feed](/weeknotes/feed.xml) if you’d like to follow along, or check back here next week. 
+[Subscribe to the feed](/weeknotes/feed.xml) if you’d like to follow along, or check back here next week. ([Read more about how to use feeds](https://aboutfeeds.com/).)

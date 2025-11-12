@@ -9,4 +9,4 @@ pagination:
 permalink: "weeknotes/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}{% endif %}/"
 ---
 
-Subscribe to the [feed](/weeknotes/feed.xml).
+Subscribe to the [feed](/weeknotes/feed.xml) to get the latest content in your RSS reader. [Learn more about feeds](https://aboutfeeds.com/).

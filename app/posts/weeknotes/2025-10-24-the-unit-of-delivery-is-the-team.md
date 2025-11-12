@@ -69,6 +69,6 @@ There’s some more work to do on that next week, and once we’ve onboarded a u
 
 All in all, a pretty good first week. The best way to build up steam is to light the stove, and sooner rather than later we’ll be chugging along. 
 
-[Subscribe to the feed](/weeknotes/feed.xml) if you’d like to follow along, or check back here next week. 
+[Subscribe to the feed](/weeknotes/feed.xml) if you’d like to follow along, or check back here next week. ([Read more about how to use feeds](https://aboutfeeds.com/).)
 
 _Ciao!_
