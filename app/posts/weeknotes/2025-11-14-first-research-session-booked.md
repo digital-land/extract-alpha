@@ -24,6 +24,8 @@ Seven LPAs are urban (according to [rural/urban classifications from Office for 
 
 And the big win of the week was recruiting the first participants! We’re really grateful to LPAs for giving up 1 or 2 hours a week to help us research and test Extract, it’s absolutely essential to ensuring we [start with user needs](https://www.gov.uk/guidance/government-design-principles#start-with-user-needs).
 
+Their Chief Technology Officer asked how Extract works, so they can think about how IT and information security policies might be affected. We’ve written [a note on the technology](/a-note-on-the-technology/) for senior leaders and IT teams who might have this question too.
+
 ## Building and deploying the prototype
 
 This week we also finalised the plans for the first prototype, figuring out the who, what, where, when and how. That includes
