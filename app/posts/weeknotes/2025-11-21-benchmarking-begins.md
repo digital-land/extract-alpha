@@ -22,9 +22,9 @@ We're currently experimenting with how to integrate these into Extract as soon a
 
 Below are examples of how precise the tools have been. The current version of Extract struggles with precision of results from these harder maps, so these images show how the new models can really boost our accuracy even further.
 
-![Example 1](/images/weeknotes/benchmarking-begins/image1.jpg)  
-![Example 2](/images/weeknotes/benchmarking-begins/image2.jpg)  
-![Example 3](/images/weeknotes/benchmarking-begins/image3.jpg)
+![Example 1](image1.jpg)  
+![Example 2](image2.jpg)  
+![Example 3](image3.jpg)
 
 ## Collaboration and new ways of working
 
