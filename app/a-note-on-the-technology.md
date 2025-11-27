@@ -12,4 +12,6 @@ Council staff have the option to refine, download or reject the output.
 
 We’re thinking about how this might impact policies at local planning authorities and would value your input on that. We’re also thinking about traceability and explainability for audit purposes, as part of our ethics work. 
 
+As Extract does not assist, supplement or automate a decision-making process with public effect, it is [exempt from the algorithmic transparency record](https://www.gov.uk/government/publications/algorithmic-transparency-recording-standard-mandatory-scope-and-exemptions-policy/algorithmic-transparency-recording-standard-atrs-mandatory-scope-and-exemptions-policy#for-which-tools-must-i-complete-an-algorithmic-transparency-record). We're working with the Algorithmic Transparency team to add a record for Extract regardless.
+
 There is more detail on how AI is used in [our blog post from June 2025](https://mhclgdigital.blog.gov.uk/2025/06/12/extract-using-ai-to-unlock-historic-planning-data/).
