@@ -6,8 +6,6 @@ date: 2025-11-21
 author: Jenny Colebourn
 ---
 
-## Benchmarking begins with MVP 0.1
-
 It’s the fifth week in the alpha and we’ve reached an important point: Extract 0.1 MVP is in the hands of users, with our first cohort of LPAs. A small step for Extract but a massive leap for product validation. If you want the backstory, the previous weeknotes cover it. Here’s what happened this week.
 
 ## MVP 0.1 release and testing
