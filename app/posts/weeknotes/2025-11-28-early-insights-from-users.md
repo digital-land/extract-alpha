@@ -28,7 +28,7 @@ Insights from this study are helping us:
 - evaluate the technology from a user perspective, and
 - inform user-centred design and engineering decisions.
 
-As we iterate the prototypes, they will continue to serve as research tools to probe broader, less-defined factors that influence implementation, governance, and trust, ensuring the solution aligns with users’ mental models and integrates seamlessly within their wider ecosystems.
+As we iterate the prototypes, they will continue to serve as research tools to probe broader, less-defined factors that influence implementation, governance, and trust, ensuring the solution aligns with [users’ expectations](https://paulgraham.com/users.html#:~:text=how%20well%20you%20understand%20them%2C%20and%20even%20how%20much%20they%20need%20what%20you%27re%20making) and integrates seamlessly within their wider ecosystems.
 
 Early next week we’ll firm up the plan for the second round of research.
 
