@@ -9,7 +9,6 @@ Extract is built in partnership between Ministry of Housing, Communities and Loc
 
 ## Ministry of Housing, Communities and Local Government
 
-- [Jenny Colebourn](https://www.linkedin.com/in/jennycolebourn/), Senior Product Manager
 - [Chanelle Williams](https://www.linkedin.com/in/chanelle-williams-bb049b41/), Senior Delivery Manager
 - [Fabia Fowler](https://www.linkedin.com/in/fabiafowler/), Senior Interaction Designer
 - [Robert Gardner-Sharp](https://www.whatpeopleactuallydo.com), Senior User Researcher
@@ -25,3 +24,4 @@ Extract is built in partnership between Ministry of Housing, Communities and Loc
 - [Kevin Etchells](https://www.linkedin.com/in/kevin-etchells-642963264/), Lead Frontend Developer and Accessibility Expert
 - Heather Reeve-Black, Impact & Evaluation
 - [Gordon Aiken](https://www.linkedin.com/in/gordonaiken/), Lead Product Manager
+
