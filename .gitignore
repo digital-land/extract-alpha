@@ -13,3 +13,6 @@ prototypes/usage-data-config.json
 # General ignores
 .DS_Store
 .idea
+
+
+WARP.md
