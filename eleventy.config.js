@@ -1,6 +1,13 @@
 import { govukEleventyPlugin } from '@x-govuk/govuk-eleventy-plugin'
 
 export default function (eleventyConfig) {
+
+
+  // Add the main njk library from the govuk-prototype-kit
+  eleventyConfig.amendLibrary('njk', nunjucksLib => {
+    nunjucksLib.loaders[0].searchPaths.push('node_modules/govuk-prototype-kit/lib/nunjucks')
+    nunjucksLib.loaders[0].searchPaths.push('node_modules/govuk-frontend/dist')
+  })
   // Options to customise the appearance of your design history
   // https://x-govuk.github.io/govuk-eleventy-plugin/options/
   eleventyConfig.addPlugin(govukEleventyPlugin, {
@@ -60,6 +67,12 @@ export default function (eleventyConfig) {
 
   // Passthrough
   eleventyConfig.addPassthroughCopy({ './app/images': '.' })
+  
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.css': 'govuk-frontend.min.css',
+    'node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.js': 'govuk-frontend.min.js',
+    'node_modules/govuk-frontend/dist/govuk/assets': 'assets'
+  })
   
   // Collections
   eleventyConfig.addCollection('design-history', collection => {
