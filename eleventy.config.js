@@ -1,13 +1,11 @@
 import { govukEleventyPlugin } from '@x-govuk/govuk-eleventy-plugin'
 
 export default function (eleventyConfig) {
-
-
-  // Add the main njk library from the govuk-prototype-kit
+  // Add govuk-frontend to nunjucks search paths
   eleventyConfig.amendLibrary('njk', nunjucksLib => {
-    nunjucksLib.loaders[0].searchPaths.push('node_modules/govuk-prototype-kit/lib/nunjucks')
     nunjucksLib.loaders[0].searchPaths.push('node_modules/govuk-frontend/dist')
   })
+
   // Options to customise the appearance of your design history
   // https://x-govuk.github.io/govuk-eleventy-plugin/options/
   eleventyConfig.addPlugin(govukEleventyPlugin, {

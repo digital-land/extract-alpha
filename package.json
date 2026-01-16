@@ -18,10 +18,8 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "@govuk-prototype-kit/common-templates": "^2.0.1",
     "@x-govuk/govuk-eleventy-plugin": "^8.0.2",
     "govuk-frontend": "^5.14.0",
-    "govuk-prototype-kit": "^13.18.1",
     "http-server": "^14.1.1",
     "rimraf": "^6.0.0",
     "sass": "^1.80.5"
