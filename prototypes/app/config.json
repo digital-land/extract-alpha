@@ -1,8 +1,0 @@
-{
-  "serviceName": "Extract your planning data",
-  "plugins": {
-    "govuk-frontend": {
-    "rebrand": true
-    }
-  }
-}
