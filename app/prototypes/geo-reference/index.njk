@@ -1,0 +1,58 @@
+{% extends "layouts/hero.html" %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+{% from "components/hero/macro.html" import hero %}
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+{% block header %}
+  {{ super() }}
+  {{ hero("Geo-reference your pdf", "Use this tool to geo-reference a map within a planning document.", "This is a prototype - your feedback will help us to improve it.") }}
+{% endblock %}
+
+{% block content %}
+
+  {{ super() }}
+
+  
+    <form method="post" enctype="multipart/form-data">
+  {{ govukFileUpload({
+			id: "file-upload",
+			name: "file",
+			label: {
+				text: "Choose a document to upload",
+				classes: "govuk-fieldset__legend--s"
+			},
+			hint: { text: "This should be a high quality scan in PDF format"},
+			chooseFilesButtonText: "Choose document",
+			dropInstructionText: "or drag and drop your document here",
+			noFileChosenText: "No document chosen",
+			multiple: false,
+			attributes: {
+				accept: ".pdf"
+			},
+			errorMessage: errorFileMessage,
+      		javascript: true
+		}) }}
+
+    <button class="govuk-button" data-module="govuk-button" type="submit">
+			Generate coordinates
+		</button>
+	</form>
+
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+{% endblock %}
+
+{% block bodyEnd %}
+{{ super() }}
+{# attach a submit handler to the form and prevent default behaviour #}
+<script>
+	const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		window.location.href = '/prototypes/geo-reference/processing';
+    });
+</script>
+{% endblock %}
+
