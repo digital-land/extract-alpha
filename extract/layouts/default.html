@@ -1,0 +1,40 @@
+{% extends "govuk/template.njk" %}
+
+{# serviceName is set in configuration #}
+{% block pageTitle %}
+  {% if pageName == "" or pageName is undefined %}
+    {{ serviceNameShort }}
+  {% else %}
+    {{ pageName }}
+    - {{ serviceNameShort }}
+  {% endif %}
+{% endblock %}
+
+{# head section of html #}
+{% block head %}
+ {% include "layouts/partials/styles.html" %}
+{% endblock %}
+
+{# display page header #}
+{% block header %}
+  {% include "layouts/partials/header.html" %}
+{% endblock %}
+
+{# before content #}
+{% block beforeContent %}
+  {% include "layouts/partials/beforeContent.html" %}
+{% endblock %}
+
+{# content #}
+{% block content %}
+  {% include "layouts/partials/messages.html" %}
+{% endblock %}
+
+{# display page footer #}
+{% block footer %}
+  {% include "components/footer/footer.html" %}
+{% endblock %}
+
+{% block bodyEnd %}
+  {% include "layouts/partials/scripts.html" %}
+{% endblock %}

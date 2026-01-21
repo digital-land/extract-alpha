@@ -1,0 +1,23 @@
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{# if errorMessages is set and has length > 0 show the errors #}
+{% if errorMessages is defined and errorMessages|length > 0 %}
+	{{ govukErrorSummary({
+			titleText: "There is a problem",
+			errorList: errorMessages
+		}) }}
+{% endif %}
+
+{# if successMessages is set and has length > 0 show the success messages #}
+{% if successMessages is defined and successMessages|length > 0 %}
+	{% set html %}
+		{% for message in successMessages %}
+			<p class="govuk-body"> {{ message.text }}</p>
+		{% endfor %}
+	{% endset %}
+	{{ govukNotificationBanner({
+		html: html,
+		type: "success"
+	}) }}
+{% endif %}

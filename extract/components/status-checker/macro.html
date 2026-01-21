@@ -1,0 +1,23 @@
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+{% macro statusChecker(job) %}
+	{% if job.status is defined %}
+
+		{% set classes = "" %}
+		{% if job.status == "awaiting_start" %}
+			{% set classes = "govuk-tag--grey" %}
+		{% elif job.status == "in_progress" %}
+			{% set classes = "govuk-tag--grey" %}
+		{% elif job.status == "completed" %}
+			{% set classes = "govuk-tag--green" %}
+		{% elif job.status == "failed" %}
+			{% set classes = "govuk-tag--red" %}
+		{% else %}
+			{% set classes = "govuk-tag--grey" %}
+		{% endif %}
+
+		<status-checker job-id="{{ job.id }}" job-title="{{ job.title }}" >
+			{{ govukTag({text: job.status | replace("_", " "), classes: classes}) }}
+		</status-checker>
+	{% endif %}
+{% endmacro %}

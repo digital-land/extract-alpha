@@ -1,0 +1,79 @@
+{%- from "govuk/components/details/macro.njk" import govukDetails -%}
+
+{# The version of the map that supports feature collection and no editing #}
+{% macro extractionMap(job) %}
+
+	{% if job.extraction_result.extracted_objects is defined and job.extraction_result.extracted_objects | length > 0 %}
+	
+		<map-component
+			data-pdf="{{ job.source_file_download_url  | sourceFile or ' ' }}"></map-component>
+
+		<link rel="stylesheet" href="{{publicPath}}/vendor/maplibre-gl.css">
+		<link rel="stylesheet" href="{{publicPath}}/vendor/maplibre-geoman.css">
+
+		<script src="{{publicPath}}/scripts/map-component.js"></script>
+
+		<script>
+			(() => {
+				const areaData = {{ job.extraction_result.extracted_objects | dump | safe }}
+				const mapEl = document.querySelector('map-component')
+				areaData.forEach((area) => {
+					const geojsonFeature = {
+						type: 'Feature',
+						geometry: area.geometry,
+						properties: area.properties
+					}
+					delete geojsonFeature.properties.geometry // don't duplicate this in the geojson
+					mapEl.showFeature(geojsonFeature)
+				})
+			})()
+		</script>
+
+	{% endif %}
+
+{% endmacro %}
+
+
+
+{# The version of the map that supports one geometry only and editing #}
+{% macro entityMap(job, entity, allowEdits) %}
+	<map-component {% if allowEdits %}
+		data-save-endpoint="/api/extractions/{{ job.id }}/entity/{{ entity.id }}/geometry"
+		{% endif %} {% if job.source_file_download_url %}
+		data-pdf="{{ job.source_file_download_url | sourceFile or ' ' }}"
+		{% endif %}></map-component>
+
+	<link rel="stylesheet" href="{{publicPath}}/vendor/maplibre-gl.css">
+	<link rel="stylesheet" href="{{publicPath}}/vendor/maplibre-geoman.css">
+
+	<script src="{{publicPath}}/scripts/map-component.js"></script>
+
+	<script>
+		(() => {
+			const areaData = {{ entity | dump | safe }}
+			const geojsonFeature = {
+				type: "Feature",
+				geometry: areaData.geometry,
+				properties: areaData,
+			}
+			delete geojsonFeature.properties.geometry // don't duplicate this in the geojson
+			const mapEl = document.querySelector('map-component')
+			mapEl.showFeature(geojsonFeature)
+			// Ensure Reset shape reverts to the originally extracted geometry, not the last saved version
+			const originalFeature = {
+				type: "Feature",
+				geometry: areaData.original_geometry || areaData.geometry,
+				properties: areaData
+			}
+			delete originalFeature.properties.geometry
+			mapEl.originalFeatures = [originalFeature]
+		})()
+	</script>
+
+	{{ govukDetails({
+		summaryText: "Help using the map with a keyboard",
+		html: "<p>With the map focussed, you can pan using the arrow keys and zoom using the <kbd>+</kbd> and <kbd>-</kbd> keys.</p><p>To edit using the keyboard, first click the edit button. Then you can enter <strong>keyboard edit mode</strong> by pressing the <kbd>m</kbd> key and then use the arrow keys to move the pointer and the enter or space keys to click. By holding the <kbd>shift</kbd> key you can move more quickly. Press the <kbd>m</kbd> key again to exit keyboard edit mode.</p>",
+		classes: "govuk-!-margin-top-3"
+	}) }}
+
+{% endmacro %}

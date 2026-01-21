@@ -1,0 +1,7 @@
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+<div class="ai-notice">
+  {{ govukNotificationBanner({
+    text: "This service uses AI to extract planning data from documents. This may produce inacurate results. Please check all outputs before use."
+  }) }}
+</div>
