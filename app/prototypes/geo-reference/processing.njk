@@ -1,26 +1,8 @@
-{% extends "layouts/hero.html" %}
+{% extends "prototypes/geo-reference/layouts/default.njk" %}
 
-{% from "components/hero/macro.html" import hero %}
 {% from "components/loading-spinner/macro.html" import loadingSpinner %}
 
-{% set mainClasses = "govuk-main-wrapper--l" %}
-{% block header %}
-  {{ super() }}
-  {{ hero("Geo-reference your pdf", "Use this tool to geo-reference a map within a planning document.", "This is a prototype - your feedback will help us to improve it.") }}
-{% endblock %}
-
 {% block content %}
-
   {{ super() }}
   {{ loadingSpinner("/prototypes/geo-reference/api/jobs.json") }}
-
 {% endblock %}
-
-{% block footer %}
-  {{ super() }}
-{% endblock %}
-
-{% block bodyEnd %}
-    {{ super() }}
-{% endblock %}
-

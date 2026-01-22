@@ -1,4 +1,12 @@
 {
+  "serviceName": "Prototypes",
+  "serviceNameShort": "Prototypes",
   "eleventyExcludeFromCollections": true,
-  "serviceName": "Geo-referencer"
+  "publicPath": "/prototypes",
+  "pageName": "Prototypes",
+  "basePath": "/prototypes",
+  "govukRebrand": true,
+  "successMessages" : [],
+  "errorMessages" : [],
+  "feedbackHtml": "This is a proto"
 }
