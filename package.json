@@ -22,7 +22,7 @@
     "govuk-frontend": "^5.14.0",
     "http-server": "^14.1.1",
     "rimraf": "^6.0.0",
-    "sass": "^1.80.5"
+    "sass": "^1.97.3"
   },
   "devDependencies": {
     "standard": "^17.1.0",
