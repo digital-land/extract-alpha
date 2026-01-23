@@ -1,0 +1,18 @@
+{% extends "prototypes/geo-reference/layouts/default.njk" %}
+
+{% from "components/loading-spinner/macro.html" import loadingSpinner %}
+
+{% block content %}
+  {{ super() }}
+  {# BUG: how would i simulate this job being complete? #}
+  {{ loadingSpinner("/prototypes/geo-reference/api/jobs.json") }}
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script>
+    setTimeout(() => {
+      window.location.href = "/prototypes/geo-reference/result";
+    }, 5000);
+  </script>
+{% endblock %}

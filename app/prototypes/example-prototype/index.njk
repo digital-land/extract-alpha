@@ -1,0 +1,7 @@
+{% extends "layouts/default.html" %}
+{% set pageName = "pageName changed from 11tydata.json" %}
+
+{% block content %}
+    {{ super() }}
+    <h1 class="govuk-heading-l">{{ pageName }}</h1>
+{% endblock %}

@@ -1,0 +1,79 @@
+@import "../../../node_modules/govuk-frontend/dist/govuk/core/typography"; 
+@import "../../../node_modules/govuk-frontend/dist/govuk/core/links"; 
+ 
+.hero {
+  $govuk-hero-background: govuk-colour('black');
+  $govuk-hero-rebrand-background: $govuk-brand-colour;
+  $govuk-hero-text: govuk-colour('white');
+
+  $govuk-hero-border-color: $govuk-brand-colour;
+  $govuk-hero-border-width: govuk-spacing(2);
+
+  $govuk-hero-vertical-spacing-value: 2;
+
+  @include _govuk-rebrand(
+    'background',
+    $from: $govuk-hero-background,
+    $to: $govuk-hero-rebrand-background
+  );
+
+  &__container {
+    @include govuk-clearfix;
+    position: relative;
+    margin-bottom: -$govuk-hero-border-width;
+    padding-top: govuk-spacing($govuk-hero-vertical-spacing-value);
+    border-bottom: $govuk-hero-border-width solid $govuk-hero-border-color;
+
+    @include _govuk-rebrand {
+      // Remove the space allocated to the blue bar
+      margin-bottom: 0;
+
+      // Remove padding as the child elements are now responsible for spacing
+      padding-top: 0;
+
+      // Remove the blue bar
+      border-bottom: none;
+    }
+  }
+
+  &__content {
+    @include govuk-grid-column(two-thirds);
+    padding: govuk-spacing(3) 0;
+
+    @media #{govuk-from-breakpoint(desktop)} {
+      padding: govuk-spacing(6) 0;
+    }
+  }
+
+
+  &__title,
+  &__lede {
+    color: $govuk-hero-text;
+  }
+
+  &__title {
+    @extend %govuk-heading-xl;
+
+    @include govuk-responsive-margin(4, 'bottom');
+  }
+
+  &__lede {
+    @extend %govuk-heading-m;
+  }
+
+  .govuk-phase-banner {
+    border: 0;
+  }
+
+  .govuk-phase-banner__content {
+    color: $govuk-hero-text;
+
+    @media print {
+      color: $govuk-print-text-colour;
+    }
+  }
+
+  .govuk-phase-banner a {
+    @extend .govuk-link--inverse;
+  }
+}

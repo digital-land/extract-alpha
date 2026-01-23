@@ -1,0 +1,36 @@
+{% extends "prototypes/geo-reference/layouts/default.njk" %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% block header %}
+    {{ super() }}
+    {{ hero("Geo-reference your pdf", "Use this tool to geo-reference a map within a planning document.<br><br>You don't need to add any details - the tool will find the map within the document and generate it's coordinates.") }}
+{% endblock %}
+
+{% block content %}
+
+    {{ super() }}
+
+    <form action="{{ basePath }}/processing" method="post" enctype="multipart/form-data">
+        {{ govukFileUpload({
+			id: "file-upload",
+			name: "file",
+			label: {
+				text: "Choose a document to upload",
+				classes: "govuk-fieldset__legend--s"
+			},
+			hint: { text: "This should be a high quality scan in PDF format"},
+			chooseFilesButtonText: "Choose document",
+			dropInstructionText: "or drag and drop your document here",
+			noFileChosenText: "No document chosen",
+			multiple: false,
+			attributes: {
+				accept: ".pdf"
+			},
+			errorMessage: errorFileMessage,
+      		javascript: true
+		}) }}
+        <button class="govuk-button" data-module="govuk-button" type="submit">
+            Find location
+        </button>
+    </form>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% macro form(docType, errorDocType, errorMessages) %}
+    {# {% set docType = null %}
+	{% set errorDocType = false %}
+	{% set errorDocTypeMessage = null %} #}
+
+	{% if errorDocType %}
+        {% set errorDocTypeMessage = { text: "Please select a document type to upload" } %}
+    {% endif %}
+
+    {% if errorMessages|length > 0 %}
+        {{ govukErrorSummary({
+			titleText: "There is a problem",
+			errorList: errorMessages
+		}) }}
+    {% else %}
+        {% include "components/ai-notice/template.html" %}
+    {% endif %}
+
+    {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+    <form method="post" enctype="multipart/form-data">
+        {{ govukRadios({
+			id: "type",
+			name: "type",
+			fieldset: {
+				legend: {
+					text: "Document type",
+					isPageHeading: false,
+					classes: "govuk-fieldset__legend--s"
+				}
+			},
+			items: [
+				{
+					value: "article4direction",
+					text: "Article 4 Direction",
+					checked: docType == "article4direction",
+					attributes: {
+						required: true
+					}
+				},
+				{
+					value: "conservationarea",
+					text: "Conservation Area",
+					checked: docType == "conservationarea",
+					attributes: {
+						required: true
+					}
+				},
+				{
+					value: "treepreservationorder",
+					text: "Tree Preservation Order",
+					checked: docType == "treepreservationorder",
+					attributes: {
+						required: true
+					}
+				}
+			],
+			errorMessage: errorDocTypeMessage
+		}) }}
+        <button class="govuk-button" data-module="govuk-button" type="submit">
+            Find location
+        </button>
+    </form>
+{% endmacro %}

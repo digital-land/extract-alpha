@@ -1,0 +1,7 @@
+// This brings in all the mixins and variables etc. from GOV.UK Frontend
+@import "../../../node_modules/govuk-frontend/dist/govuk/base";
+
+// This brings in the styles for the hero component that we've using from the /extract folder, which was copied from the extract-app frontend
+@import "../../../extract/components/hero/index";
+
+@import "../../../extract/frontend-components/frontend-components";

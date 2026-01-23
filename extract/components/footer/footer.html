@@ -1,0 +1,58 @@
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+
+ {% macro versionLine (version, commitsAhead, commitHash) %}
+    v{{ version | replace('v', '')}} 
+    <span class="custom-footer-content__separator">|</span> 
+    {% if commitsAhead %}
+      {{ commitsAhead }} commits ahead 
+      <span class="custom-footer-content__separator">|</span> 
+    {% endif %}
+    #{{ commitHash }}
+  {% endmacro %}
+
+  {% set footerHtml %}
+    <div class="custom-footer-content">
+      <div>
+        <h2 class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-2">Built by:</h2>
+        <img class="govuk-!-padding-bottom-1" src="{{ publicPath }}/i-dot-ai-reverse.svg" alt="i.AI" height="30" loading="lazy">
+        <img class="govuk-!-margin-left-4" src="{{ publicPath }}/digital-planning-logo_white.png" alt="Digital Planning" height="40" loading="lazy">
+      </div>
+      {% if versionInfo or userDetails %}
+        <dl class="custom-footer-content__version-info">
+
+          {% if userDetails %}
+            <div>
+              <dt class="govuk-!-display-inline-block govuk-!-font-weight-bold">Logged in as:</dt>
+              <dd class="govuk-!-display-inline-block govuk-!-margin-left-1">{{ userDetails.email }}</dd>
+            </div>
+            <div>
+              <dt class="govuk-!-display-inline-block govuk-!-font-weight-bold">Total extractions:</dt>
+              <dd class="govuk-!-display-inline-block govuk-!-margin-left-1">{{ userDetails.visible_extractions_count }}</dd>
+            </div>
+          {% endif %}
+
+          {% if versionInfo %}
+            {# Frontend duplicates the backend version info for now, but this will be updated as part of separating the builds #}
+            {% set versionRows = [
+              { label: 'Frontend version:', value: versionLine(versionInfo.backend_version, versionInfo.backend_commits_ahead, versionInfo.backend_commit_hash) },
+              { label: 'Backend version:', value: versionLine(versionInfo.backend_version, versionInfo.backend_commits_ahead, versionInfo.backend_commit_hash) },
+              { label: 'Planning-extract version:', value: versionLine(versionInfo.planning_extract_latest_tag, versionInfo.planning_extract_commits_ahead, versionInfo.planning_extract_commit_hash) }
+            ] %}
+            {% for row in versionRows %}
+              <div>
+                <dt class="govuk-!-display-inline-block govuk-!-font-weight-bold">{{ row.label }}</dt>
+                <dd class="govuk-!-display-inline-block govuk-!-margin-left-1">{{ row.value | safe }}</dd>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </dl>
+      {% endif %}
+    </div>
+  {% endset %}
+
+
+{{ govukFooter({
+  meta: {
+    html: footerHtml
+  }
+}) }}
