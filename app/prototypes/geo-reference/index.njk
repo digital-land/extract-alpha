@@ -1,11 +1,16 @@
 {% extends "prototypes/geo-reference/layouts/default.njk" %}
 {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
+{% block header %}
+    {{ super() }}
+    {{ hero("Geo-reference your pdf", "Use this tool to geo-reference a map within a planning document.<br><br>You don't need to add any details - the tool will find the map within the document and generate it's coordinates.") }}
+{% endblock %}
+
 {% block content %}
 
-    {{ super() }} <pre>{{ feedbackHtml | dump }}</pre>
+    {{ super() }}
 
-    <form method="post" enctype="multipart/form-data">
+    <form action="{{ basePath }}/processing" method="post" enctype="multipart/form-data">
         {{ govukFileUpload({
 			id: "file-upload",
 			name: "file",
@@ -28,16 +33,4 @@
             Find location
         </button>
     </form>
-{% endblock %}
-
-{% block bodyEnd %}
-    {{ super() }}
-    {# attach a submit handler to the form and prevent default behaviour #}
-    <script>
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            window.location.href = '/prototypes/geo-reference/processing';
-        });
-    </script>
 {% endblock %}

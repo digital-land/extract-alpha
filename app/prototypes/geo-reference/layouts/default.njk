@@ -1,12 +1,12 @@
 {% extends "layouts/hero.html" %}
 {% from "components/hero/macro.html" import hero with context %}
 
-{% block header %}
-    {{ super() }}
-    {{ hero("A collection of prototypes for Extract", "Extract uses AI to unlock historical planning data, built in partnership between MHCLG's Planning Data team and the Incubator for AI.") }}
-{% endblock %}
-
 {% block content %}
     {{ super() }}
-    <h1>{{ feedbackHtml | safe }}</h1>
+{% endblock %}
+
+{% block bodyEnd %}
+    {{ super() }}
+    <!-- edit this file at scripts/index.js -->
+    <script type="module" src="{{ basePath }}/scripts/index.js"></script>
 {% endblock %}
