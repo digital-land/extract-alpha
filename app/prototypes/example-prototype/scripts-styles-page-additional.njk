@@ -1,0 +1,23 @@
+{% extends "layouts/prototype-default.njk" %}
+{% set pageName = "This is a standard page pattern" %}
+{% set serviceName = 'Service name set for this page only' %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{basePath}}styles/styles.css" />
+{% endblock styles %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="module" src="{{basePath}}scripts/index.js"></script>
+{% endblock scripts %}
+
+{% block content %}
+  {{super()}}
+
+  <h1 class="govuk-heading-l">{{pageName}}</h1>
+
+  <p class="govuk-body">
+    This shows how to add additional styles for a specific prototype page 
+  </p>
+{% endblock %}

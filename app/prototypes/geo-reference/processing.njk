@@ -1,18 +1,22 @@
-{% extends "prototypes/geo-reference/layouts/default.njk" %}
+{% extends "layouts/prototype-default.njk" %}
 
 {% from "components/loading-spinner/macro.html" import loadingSpinner %}
 
+{% set prefix = '/' + pathPrefix  | replace('/', '') + basePath    %}
+{% set apiUrl = prefix + "api/jobs.json"   %}
+{% set redirectPath = prefix + "result"   %}
+
 {% block content %}
-  {{ super() }}
-  {# BUG: how would i simulate this job being complete? #}
-  {{ loadingSpinner("/prototypes/geo-reference/api/jobs.json") }}
+  {{super()}}
+  {{ loadingSpinner(apiUrl) }}
 {% endblock %}
+
 
 {% block bodyEnd %}
   {{ super() }}
   <script>
     setTimeout(() => {
-      window.location.href = "/prototypes/geo-reference/result";
+      window.location.href = "{{ redirectPath }}";
     }, 5000);
   </script>
 {% endblock %}

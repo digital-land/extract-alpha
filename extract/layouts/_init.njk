@@ -1,0 +1,77 @@
+
+{% if layoutType === 'default' %}
+  {% extends "layouts/default.html" %}
+{% elif layoutType === 'hero' %}
+  {% extends "layouts/hero.html" %}
+{% else %}
+  {% extends "layouts/default.html" %}
+{% endif %}
+  
+
+{# Add global defaults @todo initialisation in layout #}
+{% set serviceName = serviceName | default("Extract planning data") %}
+{% set serviceNameShort = serviceNameShort | default("Extract") %}
+
+{% set feedbackUrl = feedbackUrl | default("https://forms.gle/ga424FcF52k3Lot49") %}
+
+{% set successMessages = successMessages | default([]) %}
+{% set errorMessages = errorMessages | default([]) %}
+
+
+{% if feedbackUrl %}
+  {% set feedbackHtml = feedbackHtml | default('This is a prototype - your <a class="govuk-link" href="' + feedbackUrl + '">feedback</a> will help us to improve it.') %}
+{% else %}
+  {% set feedbackHtml = feedbackHtml | default("This is a prototype.") %}
+{% endif %}
+  
+{# change this if you need to change urls eg /prototype/prototype-1 #}
+{% set basePath = basePath | default("/prototypes/") %}
+
+{# this will be deprecated or replaced #}
+{% set publicPath = publicPath | default("/prototypes/") %}
+{% set allowEdits = allowEdits | default(true) %}
+
+
+  
+{# Use standard footer component #}
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+{% block footer %}
+ {{ govukFooter({}) }}
+{% endblock %}
+
+{% set defaultStyles %}
+  <link rel="stylesheet" href="/prototypes/styles/frontend-components.css" />
+  {# Use isSubDirectory to determine which stylesheet to load #} {% if
+  isSubDirectory %}
+  <link rel="stylesheet" href="/prototypes/styles/styles-subdir.css" />
+  {% else %}
+  <link rel="stylesheet" href="/prototypes/styles/styles.css" />
+  {% endif %}
+{% endset %}
+
+
+{% set defaultScripts %}
+  {# load the application.js file which includes govuk-frontend initAll() #}
+  <script type="module" src="/assets/application.js"></script>
+
+  {# load the frontend components js #}
+  <script type="module" src="/prototypes/scripts/frontend-components.es.js"></script>
+
+  {# load our own scripts file from /app directory #}
+  <script type="module" src="/prototypes/scripts/index.js"></script>
+{% endset %}
+
+
+{% block head %}
+  {{ super() }}
+  {% block styles %}
+    {{ defaultStyles | safe }}
+  {% endblock styles %}
+{% endblock head %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  {% block scripts %}
+    {{ defaultScripts | safe }}
+  {% endblock scripts %}
+{% endblock bodyEnd %}

@@ -1,9 +1,0 @@
-{% extends "prototypes/geo-reference/layouts/default.njk" %}
-{% from "prototypes/geo-reference/partials/form.njk" import form %}
-
-{% set mainClasses = "govuk-main-wrapper--l" %}
-
-{% block content %}
-    {# Not required here since we have to replace errors with the ai notice and vice-versa #}
-    {# {{ super() }} #}{{ form("treepreservationorder", true, errorMessages) }}
-{% endblock %}

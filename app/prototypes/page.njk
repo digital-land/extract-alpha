@@ -1,18 +1,18 @@
 {% extends "layouts/prototype-default.njk" %}
 {% set pageName = "This is a standard page pattern" %}
-{% set serviceName = 'Service name set for this page only' %}
 
 {% block content %}
   {{super()}}
-
   <h1 class="govuk-heading-l">{{pageName}}</h1>
-
   <p class="govuk-body">
+    This is an example-page
+  </p>
+    <p class="govuk-body">
     Debug info:
     <br/>Service Name: {{serviceName | dump}}
     <br/>Base Path: {{basePath | dump}}
     <br/>Path Prefix: {{pathPrefix | dump}}
-    <br /><a href="{{basePath}}hero/" class="govuk-link">View hero page example</a>
-    <br /><a href="{{pathPrefix}}" class="govuk-link">Back to prototypes</a>
+    <br /><a href="{{basePath}}/" class="govuk-link">View hero example</a>
   </p>
+
 {% endblock %}

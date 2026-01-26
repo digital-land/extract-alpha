@@ -1,0 +1,8 @@
+// Initialise govuk and govuk eleventy styles
+// Set a custom assets path for GOV.UK Frontend
+@use "init-govuk" with (
+  $app-govuk-assets-path: "/extract-alpha/assets/"
+);
+
+// Put site styles in here since we have two entry points for the sub-directory and root
+@use "site-styles";

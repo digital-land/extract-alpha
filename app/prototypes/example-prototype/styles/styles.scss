@@ -1,0 +1,7 @@
+// @use "./../../../../node_modules/govuk-frontend/dist/govuk/base" as *;
+
+@use "./../../../../node_modules/govuk-frontend/dist/govuk/helpers/colour" as *;
+
+.govuk-heading-l {
+  border: 1px solid govuk-colour("blue");
+}

@@ -1,62 +1,66 @@
-{% extends "prototypes/geo-reference/layouts/default.njk" %}
+{% extends "layouts/prototype-default.njk" %}
+{% set pageName = "Location found" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "components/simple-map/macro.njk" import simpleMap %}
+
+{% macro locationFound(fileName, address, eastingNorthing, latLng) %}
+    <p class="govuk-body">
+      <strong>File name</strong>
+      <br />
+      {{ fileName }} 
+    </p>
+    <p class="govuk-body">
+      <strong>Address</strong>
+      <br />
+      {{ address }}<br />
+      <a href="#" data-function="copyable" class="govuk-link"
+        data-clipboard-text="{{ address }}">Copy</a>
+    </p>
+
+    <p class="govuk-body">
+      <b>X, Y (Easting, Northing)</b>
+      <br />
+      {{ eastingNorthing }}<br />
+      <a href="#" data-function="copyable" class="govuk-link"
+        data-clipboard-text="{{ eastingNorthing }}">Copy</a>
+    </p>
+
+    <p class="govuk-body">
+      <b>Latitude, Longitude</b>
+      <br />
+      {{ latLng }}
+      <br />
+      <a href="#" data-function="copyable" class="govuk-link"
+        data-clipboard-text="{{ latLng | replace(' ', '') }}">Copy</a>
+    </p>
+    
+{% endmacro %}
+
 {% block content %}
-  {# two column layout #}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third govuk-body">
-      <h1 class="govuk-heading-m">Location found</h1>
-      <hr>
-        <p>
-          <strong>File name</strong>
-          <br>
-            TPO_38 _15-1.pdf
-          </p>
-          <p>
-            <strong>Address</strong>
-            <br>
-              Daintry Street, Oakhill, Stoke-on-Trent<br>
-                <a href="#" data-function="copyable" data-clipboard-text="Daintry Street, Oakhill, Stoke-on-Trent">Copy</a>
-              </p>
+  {{super()}}
+  <h1 class="govuk-heading-l">{{pageName}}</h1>
 
-              <p>
-                <b>X, Y (Easting, Northing)</b>
-                <br>
-                  386875, 343876<br>
-                    <a href="#" data-function="copyable" data-clipboard-text="386875, 343876">Copy</a>
-                  </p>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-7"/>
+  
 
-                  <p>
-                    <b>Latitude, Longitude</b>
-                    <br>
-                      52.99205243310385, -2.1969858810409884
-                      <br>
-                        <a href="#" data-function="copyable" data-clipboard-text="52.99205243310385,-2.1969858810409884">Copy</a>
-                      </p>
-                      <hr class="govuk-!-margin-bottom-7"/>
-                      {{ govukButton({
-                        text: "Upload a new document",
-                        href: "/prototypes/geo-reference"
-                      }) }}
-                    </div>
-                    <div class="govuk-grid-column-two-thirds">
-                      <img src="/assets/prototype/sample-map.png" alt="" width="100%"></div>
-                    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        {{ locationFound(
+          "TPO_38 _15-1.pdf",
+          "Daintry Street, Oakhill, Stoke-on-Trent",
+          "386875, 343876",
+          "52.99205243310385, -2.1969858810409884"
+        ) }}
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+        <img src="/assets/prototype/sample-map.png" alt="" width="100%" />
+      </div>
+    </div>
 
-                  {% endblock %}
+     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-7"/>
+  
 
-                  {% block bodyEnd %}
-                    <script>
-                      document.querySelectorAll("[data-function='copyable']").forEach((element) => {
-                        element.addEventListener("click", (event) => {
-                          navigator.clipboard.writeText(event
-                            .target
-                            .dataset
-                            .clipboardText);
-                        });
-                      });
-                    </script>
-                  {% endblock %}
-                </p>
-              </p>
-            </p>
+    {{ govukButton({text: "Upload a new document",href: "/prototypes/geo-reference"}) }}
+
+{% endblock %}

@@ -1,8 +1,0 @@
-// Use GOV.UK Frontend components
-@use "pkg:govuk-frontend/dist/govuk";
-
-// Use GOV.UK Eleventy Plugin components
-@use "pkg:@x-govuk/govuk-eleventy-plugin";
-
-// App components
-@forward "../_components/";

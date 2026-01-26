@@ -1,4 +1,5 @@
 {
-    "serviceName": "Geo-referencer",
-    "basePath": "/prototypes/geo-reference"
+  "serviceName": "Geo-referencer",
+  "basePath": "/prototypes/geo-reference/",
+  "pageName": "Geo-referencer prototype"
 }

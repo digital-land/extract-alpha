@@ -1,0 +1,31 @@
+/*
+  app/assets/_govuk.scss
+
+  This file imports and configures GOV.UK Frontend and GOV.UK Eleventy Plugin styles.
+  It is intended to be used as a partial.
+
+  NB This module defaults to working with a file structure where the
+  assets are served from the root /assets/ path.
+  
+  usage: 
+
+  @use 'govuk';
+
+  @use "govuk" with (
+    $app-govuk-assets-path: "/extract-alpha/assets/"
+  );
+
+  This allows us to support root-relative asset paths in different deployment contexts. 
+*/
+
+// Use GOV.UK Frontend
+$app-font-family: system-ui, sans-serif !default;
+$app-govuk-assets-path: "/assets/" !default;
+
+@use "pkg:govuk-frontend/dist/govuk" with (
+  $govuk-font-family: $app-font-family,
+  $govuk-assets-path: $app-govuk-assets-path
+);
+
+// Use GOV.UK Eleventy Plugin components
+@use "pkg:@x-govuk/govuk-eleventy-plugin";

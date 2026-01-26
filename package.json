@@ -12,6 +12,7 @@
     "prebuild": "rimraf _site",
     "build": "eleventy",
     "start": "eleventy --serve --quiet",
+    "start:gh-pages": "GITHUB_ACTIONS=true eleventy --serve --quiet",
     "preserve": "npm run build",
     "serve": "http-server ./_site",
     "test": "standard"
