@@ -1,0 +1,12 @@
+{% macro simpleMap(params = {}) %}
+  {% set config = {
+    title: params.title | default(""),
+    zoom: params.zoom | default(16),
+    lat: params.lat | default("52.99205243310385"),
+    lng: params.lng | default("-2.1969858810409884"),
+    publicPath: publicPath,
+    basePath: basePath,
+    standalone: standalone
+  } %}
+  {% include "./template.njk" %}
+{% endmacro %}

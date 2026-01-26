@@ -20,14 +20,227 @@
         <h2>Components</h2>
         <nav>
           <ul>
-            <li><a href="#mybox">MyBox</a></li>
-            <li><a href="#statuschecker">StatusChecker</a></li>
+            <li><a href="#loading-spinner">Loading spinner</a></li>
+            <li><a href="#status-checker">Status checker</a></li>
+            <li><a href="#example-component">Example component</a></li>
+            <li><a href="#title">Title</a></li>
+            <li><a href="#pdf">PDF</a></li>
+            <li><a href="#simple-map">Simple map</a></li>
           </ul>
         </nav>
       </aside>
       <div class="layout__main flow">
         <h1>Frontend Components Library</h1>
         <main class="flow" id="main-content">
+          <!-- start example component -->
+          <section class="component-card" id="example-component">
+            <header>
+              <h2>Example component</h2>
+            </header>
+            <article>
+              <div class="example-component">
+                <my-box></my-box>
+              </div>
+            </article>
+          </section>
+          <!-- end example component -->
+
+          <!-- start loading spinner component -->
+          <section class="component-card" id="loading-spinner">
+            <header>
+              <h2>Loading spinner</h2>
+            </header>
+            <article>
+              <!-- loading spinner loading -->
+              <section>
+                <header>
+                  <h3>Loading spinner (loading)</h3>
+                </header>
+                <article>
+                  <loading-spinner>
+                    <p class="govuk-body-l">
+                      Your PDF is being processed. This may take a few minutes.
+                      Please refresh the page to check the status.
+                    </p>
+                  </loading-spinner>
+                </article>
+              </section>
+
+              <!-- loading spinner loaded -->
+              <section>
+                <header>
+                  <h3>Loading spinner (loaded)</h3>
+                </header>
+                <article>
+                  <loading-spinner
+                    fetch-url="http://localhost:8081/api/jobs/049fbea0-7614-44c9-9d0c-33957bee2fe3"
+                  >
+                    <p class="govuk-body-l">
+                      Your PDF is being processed. This may take a few minutes.
+                      Please refresh the page to check the status.
+                    </p>
+                  </loading-spinner>
+                </article>
+              </section>
+            </article>
+          </section>
+          <!-- end loading spinner component -->
+
+          <!-- start status checker component -->
+          <section class="component-card" id="status-checker">
+            <header>
+              <h2>StatusChecker</h2>
+            </header>
+            <article>
+              <!-- start status checker example: enhancing plain text -->
+              <section>
+                <header>
+                  <h3>Enhancing plain text</h3>
+                </header>
+                <article>
+                  <p>
+                    The current status is:
+                    <status-checker
+                      job-id="049fbea0-7614-44c9-9d0c-33957bee2fe3"
+                      job-title="Article 4 Direction"
+                      api-path="http://localhost:8081/api/jobs"
+                    >
+                      queued
+                    </status-checker>
+                  </p>
+                </article>
+              </section>
+              <!-- end status checker example: enhancing plain text -->
+
+              <!-- start status checker example: enhancing single element (govuk tag) -->
+              <section>
+                <header>
+                  <h3>Enhancing single element (govuk tag)</h3>
+                </header>
+                <article>
+                  <status-checker
+                    job-id="049fbea0-7614-44c9-9d0c-33957bee2fe3"
+                    job-title="Article 4 Direction"
+                    api-path="http://localhost:8081/api/jobs"
+                  >
+                    <strong class="govuk-tag govuk-tag--grey">queued</strong>
+                  </status-checker>
+                </article>
+              </section>
+              <!-- end status checker example: enhancing single element (govuk tag) -->
+            </article>
+          </section>
+          <!-- end status checker component -->
+
+          <!-- start title component -->
+          <section class="component-card" id="title">
+            <header>
+              <h2>Title component</h2>
+            </header>
+            <article>
+              <!-- title component just title -->
+              <section>
+                <header>
+                  <h2>Just title</h2>
+                </header>
+                <article>
+                  <div class="title-component">
+                    <h1>
+                      <span class="govuk-heading-xl">Title</span>
+                    </h1>
+                  </div>
+                </article>
+              </section>
+
+              <!-- title component title and caption -->
+              <section>
+                <header>
+                  <h2>Title and caption</h2>
+                </header>
+                <article>
+                  <div class="title-component">
+                    <h1>
+                      <span class="govuk-caption-xl">Caption</span>
+                      <span class="govuk-heading-xl">Title</span>
+                    </h1>
+                  </div>
+                </article>
+              </section>
+
+              <!-- title component title and caption and tag-->
+              <section>
+                <header>
+                  <h2>Title and caption</h2>
+                </header>
+                <article>
+                  <div class="title-component">
+                    <strong class="govuk-tag govuk-tag--grey">tag</strong>
+                    <h1>
+                      <span class="govuk-caption-xl">Caption</span>
+                      <span class="govuk-heading-xl">Title</span>
+                    </h1>
+                  </div>
+                </article>
+              </section>
+            </article>
+          </section>
+          <!-- end title component -->
+
+          <!-- start pdf component -->
+          <section class="component-card" id="pdf">
+            <header>
+              <h2>PDF component</h2>
+            </header>
+            <article>
+              <pdf-component
+                title="Uploaded pdf"
+                url="#"
+                publicPath="#"
+              ></pdf-component>
+            </article>
+          </section>
+          <!-- end pdf component -->
+
+          <!-- start simple map component -->
+          <section class="component-card" id="simple-map">
+            <header>
+              <h2>Simple map component</h2>
+            </header>
+            <article>
+              <simple-map
+                title="Generated map"
+                publicPath=""
+                basePath=""
+                standalone="false"
+              ></simple-map>
+              <script type="module">
+                const areaData = {
+                  type: "FeatureCollection",
+                  features: [
+                    {
+                      type: "Feature",
+                      properties: {},
+                      geometry: {
+                        coordinates: [
+                          [
+                            [-0.14355876973726822, 51.49391648836419],
+                            [-0.14102432762049943, 51.49391648836419],
+                            [-0.14102432762049943, 51.49940032655593],
+                            [-0.14355876973726822, 51.49940032655593],
+                            [-0.14355876973726822, 51.49391648836419],
+                          ],
+                        ],
+                        type: "Polygon",
+                      },
+                    },
+                  ],
+                };
+                // document.querySelector("simple-map").showFeature(areaData);
+              </script>
+            </article>
+          </section>
+          <!-- end simple map component -->
+
           <!-- use this to see how to next examples -->
           <!-- <section class="component-card" id="css-test">
             <header>
@@ -106,53 +319,6 @@
               </section>
             </article>
           </section> -->
-
-          <section class="component-card" id="mybox">
-            <header>
-              <h2>Example component - MyBox</h2>
-            </header>
-            <article>
-              <my-box></my-box>
-            </article>
-          </section>
-          <section class="component-card" id="statuschecker">
-            <header>
-              <h2>StatusChecker</h2>
-            </header>
-            <article>
-              <section>
-                <header>
-                  <h3>Enhancing plain text</h3>
-                </header>
-                <article>
-                  <p>
-                    The current status is:
-                    <status-checker
-                      job-id="049fbea0-7614-44c9-9d0c-33957bee2fe3"
-                      job-title="Article 4 Direction"
-                      api-path="http://localhost:8081/api/jobs"
-                    >
-                      queued
-                    </status-checker>
-                  </p>
-                </article>
-              </section>
-              <section>
-                <header>
-                  <h3>Enhancing single element (govuk tag)</h3>
-                </header>
-                <article>
-                  <status-checker
-                    job-id="049fbea0-7614-44c9-9d0c-33957bee2fe3"
-                    job-title="Article 4 Direction"
-                    api-path="http://localhost:8081/api/jobs"
-                  >
-                    <strong class="govuk-tag govuk-tag--grey">queued</strong>
-                  </status-checker>
-                </article>
-              </section>
-            </article>
-          </section>
         </main>
       </div>
     </div>

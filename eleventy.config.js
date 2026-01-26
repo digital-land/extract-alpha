@@ -76,8 +76,11 @@ export default function (eleventyConfig) {
     "node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.js":
       "assets/govuk-frontend.min.js",
     "node_modules/govuk-frontend/dist/govuk/assets": "assets",
-
   });
+
+  eleventyConfig.addPassthroughCopy({ "./extract/frontend-components/": "prototypes/geo-reference/frontend-components" });
+
+  eleventyConfig.addPassthroughCopy({ "./app/assets/prototype": "prototypes" });
 
   // Collections
   eleventyConfig.addCollection("design-history", (collection) => {

@@ -1,6 +1,8 @@
 {% extends "prototypes/geo-reference/layouts/default.njk" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "components/simple-map/macro.njk" import simpleMap %}
+
 {% block content %}
   {# two column layout #}
   <div class="govuk-grid-row">
@@ -10,7 +12,7 @@
         <p>
           <strong>File name</strong>
           <br>
-            TPO_38 _15-1.pdf
+            TPO 148 (Confirmed).pdf
           </p>
           <p>
             <strong>Address</strong>
@@ -36,27 +38,37 @@
                       <hr class="govuk-!-margin-bottom-7"/>
                       {{ govukButton({
                         text: "Upload a new document",
-                        href: "/prototypes/geo-reference"
+                        href: "/prototypes/geo-reference/"
                       }) }}
                     </div>
                     <div class="govuk-grid-column-two-thirds">
-                      <img src="/assets/prototype/sample-map.png" alt="" width="100%"></div>
+
+                      {{ simpleMap({
+                          zoom: 16,
+                          lat: "52.992",
+                          lng: "-2.1969"
+                        }) }}
+
                     </div>
+                  </div>
 
-                  {% endblock %}
+                {% endblock %}
 
-                  {% block bodyEnd %}
-                    <script>
-                      document.querySelectorAll("[data-function='copyable']").forEach((element) => {
-                        element.addEventListener("click", (event) => {
-                          navigator.clipboard.writeText(event
-                            .target
-                            .dataset
-                            .clipboardText);
-                        });
+                {% block bodyEnd %}
+                  {{ super() }}
+                  <script>
+                    document.querySelectorAll("[data-function='copyable']").forEach((element) => {
+                      element.addEventListener("click", (event) => {
+                        navigator.clipboard.writeText(event
+                          .target
+                          .dataset
+                          .clipboardText);
                       });
-                    </script>
-                  {% endblock %}
-                </p>
+                    });
+                  </script>
+                {% endblock %}
               </p>
             </p>
+          </p>
+        </p>
+      </p>
