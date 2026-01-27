@@ -11,7 +11,7 @@ import {
 // }
 
 export class SimpleMap extends HTMLElement {
-  static observedAttributes = ["title"];
+  static observedAttributes = ["title", "zoom", "lat", "lng", "enableToggle"];
 
   el: Element | null = null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,6 +69,9 @@ export class SimpleMap extends HTMLElement {
   }
 
   #renderActions() {
+    if (this.getAttribute("enableToggle") !== "true") {
+      return "";
+    }
     return `
       <div class="simple-map__actions">
         <p class="govuk-body">
@@ -98,8 +101,11 @@ export class SimpleMap extends HTMLElement {
       container: mapDiv as HTMLElement,
       // style: "http://localhost:8081/api/map-style-os",
       style: this.mapLibreStyle,
-      center: [0, 51],
-      zoom: 5,
+      center: [
+        Number(this.getAttribute("lng")),
+        Number(this.getAttribute("lat")),
+      ],
+      zoom: Number(this.getAttribute("zoom")),
     });
   }
 
@@ -107,7 +113,9 @@ export class SimpleMap extends HTMLElement {
     if (!this.map) return;
 
     const gmOptions: GmOptionsPartial = {
-      // geoman options here
+      settings: {
+        controlsUiEnabledByDefault: false,
+      },
     };
 
     this.geoman = new Geoman(this.map, gmOptions);
@@ -115,41 +123,20 @@ export class SimpleMap extends HTMLElement {
     this.map.on("gm:loaded", () => {
       console.log("Geoman fully loaded");
 
-      const test: GeoJsonImportFeature = {
-        type: "Feature",
-        properties: {},
-        geometry: {
-          coordinates: [
-            [
-              [-0.14355876973726822, 51.49391648836419],
-              [-0.14102432762049943, 51.49391648836419],
-              [-0.14102432762049943, 51.49940032655593],
-              [-0.14355876973726822, 51.49940032655593],
-              [-0.14355876973726822, 51.49391648836419],
-            ],
-          ],
-          type: "Polygon",
-        },
-      };
-
-      this.map?.gm?.features.importGeoJsonFeature(test);
-
       // Here you can add your geojson shapes for example
       const shapeGeoJson: GeoJsonImportFeature = {
         type: "Feature",
-        geometry: { type: "Point", coordinates: [0, 51] },
+        geometry: {
+          type: "Point",
+          coordinates: [
+            Number(this.getAttribute("lng")),
+            Number(this.getAttribute("lat")),
+          ],
+        },
         properties: {},
       };
       // add a geojson shape to the map
       this.geoman?.features.importGeoJsonFeature(shapeGeoJson);
-
-      const shapeGeoJson2: GeoJsonImportFeature = {
-        type: "Feature",
-        geometry: { type: "Point", coordinates: [3, 52] },
-        properties: {},
-      };
-      // geoman instance is also available on the map object
-      this.map?.gm?.features.importGeoJsonFeature(shapeGeoJson2);
     });
   }
 
