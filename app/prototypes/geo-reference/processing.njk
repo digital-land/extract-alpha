@@ -1,9 +1,11 @@
 {% extends "layouts/prototype-default.njk" %}
+{% set pageName = "Processing" %}
 
 {% from "components/loading-spinner/macro.html" import loadingSpinner %}
 
 {% set prefix = '/' + pathPrefix  | replace('/', '') + basePath    %}
 {% set apiUrl = prefix + "api/jobs.json"   %}
+{% set redirectUrl = prefix + "results/"  %}
 
 {% block content %}
   {{super()}}
@@ -15,26 +17,32 @@
   {{ super() }}
   <script type="module">
 
-function slugify(text) {
-  text = text.replace(/^\s+|\s+$/g, ""); // trim leading/trailing white space
-  text = text.toLowerCase(); // convert string to lowercase
-  text = text
-    .replace(".", "-") // replace dots with dashes
-    .replace(/[^a-z0-9 -]/g, "") // remove any non-alphanumeric characters
-    .replace(/\s+/g, "-") // replace spaces with hyphens
-    .replace(/-+/g, "-"); // remove consecutive hyphens
-  return text;
-};
-    // Get the area from the query string
-    const urlParams = new URLSearchParams(window.location.search);
-    const file = urlParams.get('file');
-    // slugify the file name
-    const slug = slugify(file);
-    
+   function slugify(text) {
+    if (!text) return "";
+    text = text.replace(/^\s+|\s+$/g, ""); // trim leading/trailing white space
+    text = text.toLowerCase(); // convert string to lowercase
+    text = text
+      .replace(".", "-") // replace dots with dashes
+      .replace(/[^a-z0-9 -]/g, "") // remove any non-alphanumeric characters
+      .replace(/\s+/g, "-") // replace spaces with hyphens
+      .replace(/-+/g, "-"); // remove consecutive hyphens
+    return text;
+  }
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const file = urlParams.get("file") ?? "";
+  const slug = slugify(file);
+  const redirectUrl = slug
+    ? `{{ redirectUrl }}${slug}/`
+    : `{{ prefix }}no-results/`;
 
-    setTimeout(() => {
-      window.location.href = "{{prefix}}results/" + slug;
-    }, 1000);
+  const timeout = 20000; // 20 seconds
+
+  console.log(`Redirecting to: ${redirectUrl} in ${timeout}ms`, window.location);
+
+  setTimeout(() => {
+    window.location.href = redirectUrl;
+  }, timeout);
+
   </script>
 {% endblock %}

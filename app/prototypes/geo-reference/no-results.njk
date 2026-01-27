@@ -1,0 +1,23 @@
+{% extends "layouts/prototype-default.njk" %}
+{% set pageName = "No result" %}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+{% from "components/loading-spinner/macro.html" import loadingSpinner %}
+
+{% set prefix = '/' + pathPrefix  | replace('/', '') + basePath    %}
+{% set apiUrl = prefix + "api/jobs.json"   %}
+{% set redirectUrl = prefix + "results/"  %}
+
+{% block content %}
+  {{super()}}
+   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Sorry, there is a problem with the service
+      </h1>
+      <p class="govuk-body">Please try again later.</p>
+
+      {# Adding a back to homepage link, because refreshing this page will always show the error #}
+      <a href="{{ basePath }}" class="govuk-button">Go to homepage</a>
+    </div>
+  </div>
+{% endblock %}
