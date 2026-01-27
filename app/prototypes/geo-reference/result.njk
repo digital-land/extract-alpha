@@ -3,7 +3,7 @@
     data: geoReferenceResults
     size: 1
     alias: geoReferenceResult
-  permalink: "/prototypes/geo-reference/results/{{ geoReferenceResult.name | slugify }}/"
+  permalink: "/prototypes/geo-reference/results/{{ geoReferenceResult.filename | slugify }}/"
 ---
 {% extends "layouts/prototype-default.njk" %}
 {% set pageName = "Location found" %}

@@ -4,7 +4,6 @@
 
 {% set prefix = '/' + pathPrefix  | replace('/', '') + basePath    %}
 {% set apiUrl = prefix + "api/jobs.json"   %}
-{% set redirectPath = prefix + "results/1/"   %}
 
 {% block content %}
   {{super()}}
@@ -14,9 +13,28 @@
 
 {% block bodyEnd %}
   {{ super() }}
-  <script>
+  <script type="module">
+
+function slugify(text) {
+  text = text.replace(/^\s+|\s+$/g, ""); // trim leading/trailing white space
+  text = text.toLowerCase(); // convert string to lowercase
+  text = text
+    .replace(".", "-") // replace dots with dashes
+    .replace(/[^a-z0-9 -]/g, "") // remove any non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
+  return text;
+};
+    // Get the area from the query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const file = urlParams.get('file');
+    // slugify the file name
+    const slug = slugify(file);
+    
+
+
     setTimeout(() => {
-      window.location.href = "{{ redirectPath }}";
-    }, 20000);
+      window.location.href = "{{prefix}}results/" + slug;
+    }, 1000);
   </script>
 {% endblock %}
