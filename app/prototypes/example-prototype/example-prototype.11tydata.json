@@ -1,5 +1,4 @@
 {
   "serviceName": "Service name for all pages in folder override example",
-  "basePath": "/prototypes/example-prototype/",
-  "pathPrefix": "/prototypes/"
+  "basePath": "/prototypes/example-prototype/"
 }
