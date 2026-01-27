@@ -1,6 +1,6 @@
 import { govukEleventyPlugin } from "@x-govuk/govuk-eleventy-plugin";
 
-// import * as filters from "./extract/nunjucks/filters/index.js";
+import * as filters from "./extract/frontend-components/nunjucks/filters/index.js";
 // import * as globals from "./extract/nunjucks/globals/index.js";
 
 /**
@@ -31,14 +31,10 @@ const addExtractPrototyping = (eleventyConfig) => {
     "extract/frontend-components/*.es.js": "prototypes/scripts/",
   });
 
-  // eleventyConfig.addCollection("prototypes", (collection) => {
-  //   return collection.getFilteredByGlob("app/prototypes/**/*.njk");
-  // });
-
-  // // Custom filters
-  // Object.keys(filters).forEach((key) => {
-  //   eleventyConfig.addNunjucksFilter(key, filters[key]);
-  // });
+  // Custom filters
+  Object.keys(filters).forEach((key) => {
+    eleventyConfig.addNunjucksFilter(key, filters[key]);
+  });
   // // Custom globals
   // Object.keys(globals).forEach((key) => {
   //   eleventyConfig.addNunjucksGlobal(key, globals[key]);

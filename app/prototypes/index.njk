@@ -14,12 +14,14 @@
     <li><a href="{{basePath}}geo-reference" class="govuk-link">w/c 26 Jan 2026 - Geo-reference</a> (<a href="{{basePath}}geo-reference/admin/" class="govuk-link">admin</a>)</li>
   </ul>
 
+
   <p class="govuk-body">
     Debug info:
     <br/>Service Name: {{serviceName | dump}}
     <br/>Base Path: {{basePath | dump}}
     <br/>Path Prefix: {{pathPrefix | dump}}
     <br /><a href="{{basePath}}page/" class="govuk-link">View page example</a>
+    <br />{{ "article4direction" | docType }}
   </p>
 {% endblock %}
 
