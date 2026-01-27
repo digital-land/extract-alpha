@@ -1,29 +1,31 @@
+---
+  pagination:
+    data: geoReferenceResults
+    size: 1
+    alias: geoReferenceResult
+  permalink: "/prototypes/geo-reference/results/{{ geoReferenceResult.name | slugify }}/"
+---
 {% extends "layouts/prototype-default.njk" %}
 {% set pageName = "Location found" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-
+{% from "components/title/macro.html" import title %}
 {% from "prototypes/geo-reference/macros/resultPage.njk" import resultPage %}
+
 
 
 
 {% block content %}
   {{super()}}
-  <h1 class="govuk-heading-l">{{pageName}}</h1>
+
+  {{title(pageName, geoReferenceResult.filename)}}
+
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-7"/>
   
 
-    {{resultPage({
-       filename: "TPO_38 _15-1.pdf",
-       address: "Daintry Street, Oakhill, Stoke-on-Trent",
-       easting: 386875,
-       northing: 343876,
-       lat: 52.99205243310385,
-       lng: -2.1969858810409884,
-       zoom: 16
-    })}}
+    {{resultPage(geoReferenceResult)}}
 
 
      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-7"/>

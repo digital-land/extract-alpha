@@ -1,0 +1,30 @@
+---
+pagination:
+  data: geoReferenceResults
+  size: 6
+  alias: geoReferenceResult
+---
+
+{% extends "layouts/prototype-default.njk" %}
+{% set pageName = "Admin page" %}
+
+{% block content %}
+  {{super()}}
+  <h1 class="govuk-heading-l">{{pageName}}</h1>
+
+  <ul class="govuk-list govuk-list--bullet">
+		<li><a href="{{ basePath }}" class="govuk-link">Homepage</a></li>
+		<li><a href="{{ basePath }}processing/" class="govuk-link">Processing page</a></li>
+		<li class="govuk-body">Results pages:
+		<ul class="govuk-list govuk-list--bullet">
+			{% for geoReferenceResult in geoReferenceResults %}
+			{% set url = basePath + "results/" + (geoReferenceResult.name | slugify) + "/" %}
+			<li><a href="{{ url }}" class="govuk-link">{{ geoReferenceResult.name }}</a></li>
+		{% endfor %}
+		</ul>
+		</li>
+		
+	</ul>
+{% endblock %}
+
+ 

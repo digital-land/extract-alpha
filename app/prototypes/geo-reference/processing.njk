@@ -4,7 +4,7 @@
 
 {% set prefix = '/' + pathPrefix  | replace('/', '') + basePath    %}
 {% set apiUrl = prefix + "api/jobs.json"   %}
-{% set redirectPath = prefix + "result"   %}
+{% set redirectPath = prefix + "results/1/"   %}
 
 {% block content %}
   {{super()}}

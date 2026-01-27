@@ -1,5 +1,6 @@
 [
   {
+    "name": "1",
     "filename": "TPO_38 _15-1.pdf",
     "address": "Daintry Street, Oakhill, Stoke-on-Trent",
     "easting": 386875,
@@ -9,6 +10,7 @@
     "zoom": 16
   },
   {
+    "name": "example-2",
     "filename": "example-2.pdf",
     "address": "123 Mushroom house, 123 Fungal Road, Spore City",
     "easting": 386875,
