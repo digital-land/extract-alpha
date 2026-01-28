@@ -47,7 +47,7 @@ const addGovUkEleventyPlugin = (eleventyConfig) => {
   const isSubDirectory = eleventyConfig.globalData.isSubDirectory || false;
   // https://govuk-eleventy-plugin.x-govuk.org/get-started/options/#options-for-search-object
   const search = {
-    indexPath: `${pathPrefix}search-index.json`,
+    indexPath: `search-index.json`,
     sitemapPath: "/sitemap",
   };
   // https://govuk-eleventy-plugin.x-govuk.org/get-started/options/#options-for-header-object

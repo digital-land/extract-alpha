@@ -15,7 +15,8 @@
     "start:gh-pages": "GITHUB_ACTIONS=true eleventy --serve --quiet",
     "preserve": "npm run build",
     "serve": "http-server ./_site",
-    "test": "standard"
+    "test": "standard",
+    "test:gh-pages": "GITHUB_ACTIONS=true GITHUB_REF=\"refs/heads/main\" npm run build && mkdir -p _site/extract-alpha && cp -rp _site/* _site/extract-alpha/ && GITHUB_ACTIONS=true GITHUB_REF=\"refs/heads/main\" http-server ./_site"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
