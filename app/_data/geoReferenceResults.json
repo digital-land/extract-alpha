@@ -1,0 +1,38 @@
+[
+  {
+    "filename": "TPO_38 _15-1.pdf",
+    "address": "Daintry Street, Oakhill, Stoke-on-Trent",
+    "easting": 386875,
+    "northing": 343876,
+    "lat": 52.99205243310385,
+    "lng": -2.1969858810409884,
+    "zoom": 16
+  },
+  {
+    "filename": "example-2.pdf",
+    "address": "123 Mushroom house, 123 Fungal Road, Spore City",
+    "easting": 386875,
+    "northing": 343876,
+    "lat": 54.99205243310385,
+    "lng": -2.1969858810409884,
+    "zoom": 16
+  },
+  {
+    "filename": "WR403.pdf",
+    "address": "123 Mushroom house, 123 Fungal Road, Spore City",
+    "easting": 386875,
+    "northing": 343876,
+    "lat": 54.99205243310385,
+    "lng": -2.1969858810409884,
+    "zoom": 16
+  },
+  {
+    "filename": "1275.pdf",
+    "address": "123 Mushroom house, 123 Fungal Road, Spore City",
+    "easting": 386875,
+    "northing": 343876,
+    "lat": 54.99205243310385,
+    "lng": -2.1969858810409884,
+    "zoom": 16
+  }
+]

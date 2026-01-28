@@ -1,18 +1,48 @@
-{% extends "prototypes/geo-reference/layouts/default.njk" %}
+{% extends "layouts/prototype-default.njk" %}
+{% set pageName = "Processing" %}
 
 {% from "components/loading-spinner/macro.html" import loadingSpinner %}
 
+{% set prefix = '/' + pathPrefix  | replace('/', '') + basePath    %}
+{% set apiUrl = prefix + "api/jobs.json"   %}
+{% set redirectUrl = prefix + "results/"  %}
+
 {% block content %}
-  {{ super() }}
-  {# BUG: how would i simulate this job being complete? #}
-  {{ loadingSpinner("/prototypes/geo-reference/api/jobs.json") }}
+  {{super()}}
+  {{ loadingSpinner(apiUrl) }}
 {% endblock %}
+
 
 {% block bodyEnd %}
   {{ super() }}
-  <script>
-    setTimeout(() => {
-      window.location.href = "/prototypes/geo-reference/result";
-    }, 5000);
+  <script type="module">
+
+   function slugify(text) {
+    if (!text) return "";
+    text = text.replace(/^\s+|\s+$/g, ""); // trim leading/trailing white space
+    text = text.toLowerCase(); // convert string to lowercase
+    text = text
+      .replace(".", "-") // replace dots with dashes
+      .replace(/[^a-z0-9 -]/g, "") // remove any non-alphanumeric characters
+      .replace(/\s+/g, "-") // replace spaces with hyphens
+      .replace(/-+/g, "-"); // remove consecutive hyphens
+    return text;
+  }
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const file = urlParams.get("file") ?? "";
+  const slug = slugify(file);
+  const redirectUrl = slug
+    ? `{{ redirectUrl }}${slug}/`
+    : `{{ prefix }}no-results/`;
+
+  const timeout = 20000; // 20 seconds
+
+  console.log(`Redirecting to: ${redirectUrl} in ${timeout}ms`, window.location);
+
+  setTimeout(() => {
+    window.location.href = redirectUrl;
+  }, timeout);
+
   </script>
 {% endblock %}

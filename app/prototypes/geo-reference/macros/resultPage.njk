@@ -1,0 +1,24 @@
+{% from "prototypes/geo-reference/macros/locationFound.njk" import locationFound %}
+{% from "components/simple-map/macro.njk" import simpleMap %}
+
+
+{% macro resultPage(params) %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        {{ locationFound(
+         params
+        ) }}
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+         {{ simpleMap({
+                          zoom: params.zoom | default(16),
+                          lat: params.lat,
+                          lng: params.lng,
+                          enableToggle: false
+                        }) }}
+      </div>
+    </div>
+
+
+{% endmacro %}

@@ -49,6 +49,9 @@ npm run build
 
 ```bash
 npm start
+
+# use this to mimic the github pages environment which adds the /extract-alpha/ base path
+npm start:gh-pages
 ```
 
 This runs Eleventy with --serve which will build the site and serve it at a local address (usually http://localhost:8080 or a port printed by Eleventy). You can edit files in `app/` and the server will refresh.

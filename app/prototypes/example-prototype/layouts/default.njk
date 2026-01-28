@@ -1,0 +1,16 @@
+{% extends "layouts/prototype-default.njk" %}
+
+{# NB serviceName can also be set here #}
+{# {% set serviceName = 'Service name set in layouts' %} #}
+
+{% block styles %}
+  {# comment out super to replace styles #}
+  {{ super() }}
+  <link rel="stylesheet" href="{{basePath}}styles/styles.css" />
+{% endblock styles %}
+
+{% block scripts %}
+  {# comment out super to replace scripts #}
+  {{ super() }}
+  <script type="module" src="{{basePath}}scripts/index.js"></script>
+{% endblock scripts %}

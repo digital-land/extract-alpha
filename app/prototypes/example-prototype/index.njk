@@ -1,7 +1,18 @@
-{% extends "layouts/default.html" %}
-{% set pageName = "pageName changed from 11tydata.json" %}
+{% extends "layouts/prototype-default.njk" %}
+{% set pageName = "This is a standard page pattern" %}
+{% set serviceName = 'Service name set for this page only' %}
 
 {% block content %}
-    {{ super() }}
-    <h1 class="govuk-heading-l">{{ pageName }}</h1>
+  {{super()}}
+
+  <h1 class="govuk-heading-l">{{pageName}}</h1>
+
+  <p class="govuk-body">
+    Debug info:
+    <br/>Service Name: {{serviceName | dump}}
+    <br/>Base Path: {{basePath | dump}}
+    <br/>Path Prefix: {{pathPrefix | dump}}
+    <br /><a href="{{basePath}}hero/" class="govuk-link">View hero page example</a>
+    <br /><a href="/prototypes" class="govuk-link">Back to prototypes</a>
+  </p>
 {% endblock %}

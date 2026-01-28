@@ -1,0 +1,32 @@
+{% macro locationFound(params) %}
+    <p class="govuk-body">
+      <strong>File name</strong>
+      <br />
+      {{ params.filename }} 
+    </p>
+    <p class="govuk-body">
+      <strong>Address</strong>
+      <br />
+      {{ params.address }}<br />
+      <a href="#" data-function="copyable" class="govuk-link"
+        data-clipboard-text="{{ params.address }}">Copy</a>
+    </p>
+
+    <p class="govuk-body">
+      <b>X, Y (Easting, Northing)</b>
+      <br />
+      {{ params.easting }}, {{ params.northing }}
+      <br />
+      <a href="#" data-function="copyable" class="govuk-link"
+        data-clipboard-text="{{ params.easting }},{{ params.northing }}">Copy</a>
+    </p>
+
+    <p class="govuk-body">
+      <b>Latitude, Longitude</b>
+      <br />
+      {{ params.lat | round(6) }}, {{ params.lng | round(6) }}
+      <br />
+      <a href="#" data-function="copyable" class="govuk-link"
+        data-clipboard-text="{{ params.lat | round(6) }},{{ params.lng | round(6) }}">Copy</a>
+    </p> 
+{% endmacro %}

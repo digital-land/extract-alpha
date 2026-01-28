@@ -1,15 +1,28 @@
-{% extends "layouts/default.html" %}
+{% extends "layouts/prototype-hero.njk" %}
+{% from "components/hero/macro.html" import hero  %}
 
-{# TODO sort this #}
-
-{% set errorMessages = [ { text: "Please select a document type to upload", href: "#type" } ] %}
-{% block content %}
-
-  <div class="govuk-body">
-    <h1>Extract Prototyping & Testing</h1>
-    <p>This is a collection of prototypes for Extract.</p>
-    <ul>
-      <li><a href="geo-reference">w/c 26 Jan 2026 - Geo-reference</a></li>
-    </ul>
-  </div>
+{% block header %}
+  {{ super() }}
+  {{ hero("A collection of prototypes for Extract", "Extract uses AI to unlock historical planning data, built in partnership between MHCLG's Planning Data team and the Incubator for AI.", feedbackHtml) }}
 {% endblock %}
+
+{% block content %}
+  {{super()}}
+  <p class="govuk-body">This is a collection of prototypes for Extract.</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="{{basePath}}example-prototype" class="govuk-link">Example prototype</a></li>
+    <li><a href="{{basePath}}geo-reference" class="govuk-link">w/c 26 Jan 2026 - Geo-reference</a> (<a href="{{basePath}}geo-reference/admin/" class="govuk-link">admin</a>)</li>
+  </ul>
+
+
+  <p class="govuk-body">
+    Debug info:
+    <br/>Service Name: {{serviceName | dump}}
+    <br/>Base Path: {{basePath | dump}}
+    <br/>Path Prefix: {{pathPrefix | dump}}
+    <br /><a href="{{basePath}}page/" class="govuk-link">View page example</a>
+    <br />{{ "article4direction" | docType }}
+  </p>
+{% endblock %}
+
+ 
