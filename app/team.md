@@ -11,10 +11,7 @@ Extract is built in partnership between Ministry of Housing, Communities and Loc
 
 - [Chanelle Williams](https://www.linkedin.com/in/chanelle-williams-bb049b41/), Senior Delivery Manager
 - [Fabia Fowler](https://www.linkedin.com/in/fabiafowler/), Senior Interaction Designer
-- [Robert Gardner-Sharp](https://www.whatpeopleactuallydo.com), Senior User Researcher
-- [Hannah Nicholas](https://www.linkedin.com/in/apricot13/), Senior Frontend Developer
 - [Owen Eveleigh](https://www.linkedin.com/in/owen-eveleigh-365aa4b4/), Lead Developer
-- [Steve Messer](https://boringmagi.cc), Strategic Product Lead
 
 ## Incubator for AI
 
