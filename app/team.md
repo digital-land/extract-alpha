@@ -15,7 +15,6 @@ Extract is built in partnership between Ministry of Housing, Communities and Loc
 
 ## Incubator for AI
 
-- [Gavin Edwards](https://www.linkedin.com/in/gavedwards0/), Principal AI Engineer
 - [Jordan Juritz](https://www.linkedin.com/in/jjuritz/), Lead AI Engineer
 - [Aydin Utting](https://www.linkedin.com/in/aydin-utting/), Senior AI Engineer
 - [Kevin Etchells](https://www.linkedin.com/in/kevin-etchells-642963264/), Lead Frontend Developer and Accessibility Expert
