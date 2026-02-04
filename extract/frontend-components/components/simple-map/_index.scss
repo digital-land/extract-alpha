@@ -1,7 +1,0 @@
-// any dependencies other than govuk base will go here
-@import "../../../node_modules/@geoman-io/maplibre-geoman-free/dist/maplibre-geoman.css";
-@import "../../../node_modules/maplibre-gl/dist/maplibre-gl.css";
-$selector: simple-map;
-
-.#{$selector} {
-}
