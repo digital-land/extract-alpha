@@ -6,7 +6,8 @@
     "northing": 343876,
     "lat": 52.99205243310385,
     "lng": -2.1969858810409884,
-    "zoom": 16
+    "zoom": 16,
+    "styled": true
   },
   {
     "filename": "example-2.pdf",
@@ -15,7 +16,8 @@
     "northing": 343876,
     "lat": 54.99205243310385,
     "lng": -2.1969858810409884,
-    "zoom": 16
+    "zoom": 16,
+    "styled": true
   },
   {
     "filename": "WR403.pdf",
@@ -24,7 +26,8 @@
     "northing": 343876,
     "lat": 54.99205243310385,
     "lng": -2.1969858810409884,
-    "zoom": 16
+    "zoom": 16,
+    "styled": true
   },
   {
     "filename": "1275.pdf",
@@ -33,6 +36,7 @@
     "northing": 343876,
     "lat": 54.99205243310385,
     "lng": -2.1969858810409884,
-    "zoom": 16
+    "zoom": 16,
+    "styled": true
   }
 ]

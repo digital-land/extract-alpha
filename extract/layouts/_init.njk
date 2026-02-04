@@ -1,37 +1,17 @@
 
 {% if layoutType === 'default' %}
-  {% extends "layouts/default.html" %}
+  {% extends "layouts/default.njk" %}
 {% elif layoutType === 'hero' %}
-  {% extends "layouts/hero.html" %}
+  {% extends "layouts/hero.njk" %}
 {% else %}
-  {% extends "layouts/default.html" %}
+  {% extends "layouts/default.njk" %}
 {% endif %}
   
 
-{# Add global defaults @todo initialisation in layout #}
-{% set serviceName = serviceName | default("Extract planning data") %}
-{% set serviceNameShort = serviceNameShort | default("Extract") %}
+{# overwrite some globals #}
 
-{% set feedbackUrl = feedbackUrl | default("https://forms.gle/ga424FcF52k3Lot49") %}
-
-{% set successMessages = successMessages | default([]) %}
-{% set errorMessages = errorMessages | default([]) %}
-
-
-{% if feedbackUrl %}
-  {% set feedbackHtml = feedbackHtml | default('This is a prototype - your <a class="govuk-link" href="' + feedbackUrl + '">feedback</a> will help us to improve it.') %}
-{% else %}
-  {% set feedbackHtml = feedbackHtml | default("This is a prototype.") %}
-{% endif %}
-  
-{# change this if you need to change urls eg /prototype/prototype-1 #}
-{% set basePath = basePath | default("/prototypes/") %}
-
-{# this will be deprecated or replaced #}
-{% set publicPath = publicPath | default("/prototypes/") %}
-{% set allowEdits = allowEdits | default(true) %}
-
-
+{% set feedbackUrl = false %}
+{% set feedbackHtml = "This is a prototype - your feedback will help us to improve it." %}
   
 {# Use standard footer component #}
 {% from "govuk/components/footer/macro.njk" import govukFooter %}
@@ -40,7 +20,7 @@
 {% endblock %}
 
 {% set defaultStyles %}
-  <link rel="stylesheet" href="/prototypes/styles/frontend-components.css" />
+  <link rel="stylesheet" href="/prototypes/styles/extract-frontend-components.css" />
   {# Use isSubDirectory to determine which stylesheet to load #} {% if
   isSubDirectory %}
   <link rel="stylesheet" href="/prototypes/styles/styles-subdir.css" />
@@ -55,7 +35,7 @@
   <script type="module" src="/assets/application.js"></script>
 
   {# load the frontend components js #}
-  <script type="module" src="/prototypes/scripts/frontend-components.es.js"></script>
+  <script type="module" src="/prototypes/scripts/extract-frontend-components.es.js"></script>
 
   {# load our own scripts file from /app directory #}
   <script type="module" src="/prototypes/scripts/index.js"></script>

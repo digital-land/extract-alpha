@@ -1,7 +1,7 @@
 {% extends "layouts/prototype-default.njk" %}
 {% set pageName = "Processing" %}
 
-{% from "components/loading-spinner/macro.html" import loadingSpinner %}
+{% from "components/loading-spinner/macro.njk" import loadingSpinner %}
 
 {% set prefix = '/' + pathPrefix  | replace('/', '') + basePath    %}
 {% set apiUrl = prefix + "api/jobs.json"   %}
@@ -9,7 +9,7 @@
 
 {% block content %}
   {{super()}}
-  {{ loadingSpinner(apiUrl) }}
+  {{ loadingSpinner({fetchUrl: apiUrl}) }}
 {% endblock %}
 
 

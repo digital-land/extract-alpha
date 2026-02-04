@@ -10,7 +10,7 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% from "components/title/macro.html" import title %}
+{% from "components/title/macro.njk" import title %}
 {% from "prototypes/geo-reference/macros/resultPage.njk" import resultPage %}
 
 
@@ -19,7 +19,7 @@
 {% block content %}
   {{super()}}
 
-  {{title(pageName, geoReferenceResult.filename)}}
+  {{title({title: pageName, caption: geoReferenceResult.filename} )}}
 
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-7"/>
@@ -33,18 +33,4 @@
 
     {{ govukButton({text: "Upload a new document",href: basePath}) }}
 
-{% endblock %}
-
- {% block bodyEnd %}
-  {{ super() }}
-  <script>
-    document.querySelectorAll("[data-function='copyable']").forEach((element) => {
-      element.addEventListener("click", (event) => {
-        navigator.clipboard.writeText(event
-          .target
-          .dataset
-          .clipboardText);
-      });
-    });
-  </script>
 {% endblock %}

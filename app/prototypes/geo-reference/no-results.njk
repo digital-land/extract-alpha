@@ -1,7 +1,6 @@
 {% extends "layouts/prototype-default.njk" %}
 {% set pageName = "No result" %}
 {% set mainClasses = "govuk-main-wrapper--l" %}
-{% from "components/loading-spinner/macro.html" import loadingSpinner %}
 
 {% set prefix = '/' + pathPrefix  | replace('/', '') + basePath    %}
 {% set apiUrl = prefix + "api/jobs.json"   %}

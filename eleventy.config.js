@@ -1,8 +1,6 @@
 import { govukEleventyPlugin } from "@x-govuk/govuk-eleventy-plugin";
 
-import * as filters from "./extract/frontend-components/nunjucks/filters/index.js";
-// import * as globals from "./extract/nunjucks/globals/index.js";
-
+import { globals, filters } from "extract-frontend-components/nunjucks";
 /**
  * This function updates this repo to support prototyping and
  * to shared templates and components with the extract-app repo.
@@ -18,7 +16,9 @@ const addExtractPrototyping = (eleventyConfig) => {
   // order is important here - extract comes first so its layouts override the ones in extract-app
   eleventyConfig.amendLibrary("njk", (nunjucksLib) => {
     nunjucksLib.loaders[0].searchPaths.push("extract");
-    nunjucksLib.loaders[0].searchPaths.push("extract/frontend-components");
+    nunjucksLib.loaders[0].searchPaths.push(
+      "./node_modules/extract-frontend-components/src",
+    );
   });
 
   // Allow .js files to be copied to the output folder
@@ -27,18 +27,19 @@ const addExtractPrototyping = (eleventyConfig) => {
 
   // Passthrough frontend-component assets to prototypes folder in build
   eleventyConfig.addPassthroughCopy({
-    "extract/frontend-components/*.css": "prototypes/styles/",
-    "extract/frontend-components/*.es.js": "prototypes/scripts/",
+    "node_modules/extract-frontend-components/dist/*.css": "prototypes/styles/",
+    "node_modules/extract-frontend-components/dist/*.es.js":
+      "prototypes/scripts/",
   });
 
   // Custom filters
   Object.keys(filters).forEach((key) => {
     eleventyConfig.addNunjucksFilter(key, filters[key]);
   });
-  // // Custom globals
-  // Object.keys(globals).forEach((key) => {
-  //   eleventyConfig.addNunjucksGlobal(key, globals[key]);
-  // });
+  // Custom globals
+  Object.keys(globals).forEach((key) => {
+    eleventyConfig.addNunjucksGlobal(key, globals[key]);
+  });
 };
 
 const addGovUkEleventyPlugin = (eleventyConfig) => {

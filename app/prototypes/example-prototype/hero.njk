@@ -1,12 +1,12 @@
 {% extends "layouts/prototype-hero.njk" %}
 {% set pageName = "This is a hero page pattern" %}
 
-{% from "components/hero/macro.html" import hero  %}
+{% from "components/hero/macro.njk" import hero  %}
 
 
 {% block header %}
   {{ super() }}
-  {{ hero("Example hero", "Example caption", feedbackHtml) }}
+  {{ hero({title: "Example hero", lede: "Example caption", feedbackHtml: feedbackHtml}) }}
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,6 @@
     Debug info:
     <br/>Service Name: {{serviceName | dump}}
     <br/>Base Path: {{basePath | dump}}
-    <br/>Path Prefix: {{pathPrefix | dump}}
     <br /><a href="{{basePath}}" class="govuk-link">View default page example</a>
     <br /><a href="/prototypes" class="govuk-link">Back to prototypes</a>
   </p>
