@@ -13,11 +13,6 @@
 {% set feedbackUrl = false %}
 {% set feedbackHtml = "This is a prototype - your feedback will help us to improve it." %}
   
-{# Use standard footer component #}
-{% from "govuk/components/footer/macro.njk" import govukFooter %}
-{% block footer %}
- {{ govukFooter({}) }}
-{% endblock %}
 
 {% set defaultStyles %}
   <link rel="stylesheet" href="/prototypes/styles/extract-frontend-components.css" />
