@@ -24,7 +24,8 @@
     "govuk-frontend": "^5.14.0",
     "http-server": "^14.1.1",
     "rimraf": "^6.0.0",
-    "sass": "^1.80.5"
+    "sass": "^1.80.5",
+    "extract-frontend-components": "file:./extract/extract-frontend-components-0.0.0.tgz"
   },
   "devDependencies": {
     "standard": "^17.1.0",
