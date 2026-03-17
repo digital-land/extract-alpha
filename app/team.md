@@ -16,6 +16,6 @@ Extract is built in partnership between Ministry of Housing, Communities and Loc
 - [Kevin Etchells](https://www.linkedin.com/in/kevin-etchells-642963264/), Lead Frontend Developer and Accessibility Expert
 - Heather Reeve-Black, Impact & Evaluation
 - [Richard Jackson](https://www.linkedin.com/in/richard-jackson-18458841/), Lead Applied AI Engineer
-- [Ashley Poole] (https://www.linkedin.com/in/dr-ashley-poole-a3758010a/), Lead Applied AI Engineer
-- [Nick Ritchie] (https://www.linkedin.com/in/nick-ritchie-43926722/)
+- [Ashley Poole](https://www.linkedin.com/in/dr-ashley-poole-a3758010a/), Lead Applied AI Engineer
+- [Nick Ritchie](https://www.linkedin.com/in/nick-ritchie-43926722/)
 
