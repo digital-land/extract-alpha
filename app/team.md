@@ -17,5 +17,5 @@ Extract is built in partnership between Ministry of Housing, Communities and Loc
 - Heather Reeve-Black, Impact & Evaluation
 - [Richard Jackson](https://www.linkedin.com/in/richard-jackson-18458841/), Lead Applied AI Engineer
 - [Ashley Poole](https://www.linkedin.com/in/dr-ashley-poole-a3758010a/), Lead Applied AI Engineer
-- [Nick Ritchie](https://www.linkedin.com/in/nick-ritchie-43926722/)
+- [Nick Ritchie](https://www.linkedin.com/in/nick-ritchie-43926722/), Lead Interaction Designer
 
