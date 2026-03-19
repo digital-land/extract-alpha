@@ -19,7 +19,7 @@
     "test:gh-pages": "GITHUB_ACTIONS=true GITHUB_REF=\"refs/heads/main\" npm run build && mkdir -p _site/extract-alpha && cp -rp _site/* _site/extract-alpha/ && GITHUB_ACTIONS=true GITHUB_REF=\"refs/heads/main\" http-server ./_site"
   },
   "dependencies": {
-    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy": "^3.1.5",
     "@x-govuk/govuk-eleventy-plugin": "^8.0.2",
     "govuk-frontend": "^5.14.0",
     "http-server": "^14.1.1",
